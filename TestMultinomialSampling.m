@@ -11,8 +11,9 @@ function TestMultinomialSampling(Word1, Word2)
     K = [10 20 30 50 80 100 150 200 300 400 500 600 800 1000];
                         %sample size is 100 (select 100 rows from w1 and w2)
     for m = 1:10^3
-        ind = randsample(N,max(K));
-        S1 = W1(ind); S2 = W2(ind);
+        ind = randsample(N,max(K));             % returns max(K)=10000 by 1 vector of random points from 1 to n
+                                                % return column vector of random rows/document indexes 
+        S1 = W1(ind); S2 = W2(ind);             % return random points 
         for i = 1:length(K)
             s1 = S1(1:K(i));
             s2 = S2(1:K(i));
